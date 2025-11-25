@@ -1,0 +1,1252 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Module 4: Introduction to Noir · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="module-5-basic-proof-circuits.html" />
+    
+    
+    <link rel="prev" href="module-3-practical-zkp-concepts.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="module-1-mathematical-foundations.html">
+            
+                <a href="module-1-mathematical-foundations.html">
+            
+                    
+                    Module 1: Mathematical Foundations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="module-2-introduction-zkp.html">
+            
+                <a href="module-2-introduction-zkp.html">
+            
+                    
+                    Module 2: Introduction to ZKPs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="module-3-practical-zkp-concepts.html">
+            
+                <a href="module-3-practical-zkp-concepts.html">
+            
+                    
+                    Module 3: Practical ZKP Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="module-4-introduction-noir.html">
+            
+                <a href="module-4-introduction-noir.html">
+            
+                    
+                    Module 4: Introduction to Noir
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="module-5-basic-proof-circuits.html">
+            
+                <a href="module-5-basic-proof-circuits.html">
+            
+                    
+                    Module 5: Basic Proof Circuits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="module-6-advanced-techniques.html">
+            
+                <a href="module-6-advanced-techniques.html">
+            
+                    
+                    Module 6: Advanced Techniques
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../additional-resources.html">
+            
+                <a href="../additional-resources.html">
+            
+                    
+                    Additional Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Module 4: Introduction to Noir</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="module-4-introduction-to-noir-programming-language">Module 4: Introduction to Noir Programming Language</h1>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this lesson, you will be able to:</p>
+<ul>
+<li>Understand the purpose and design philosophy of Noir</li>
+<li>Set up the Noir development environment</li>
+<li>Identify the key syntactic elements of Noir</li>
+<li>Write and compile basic Noir programs</li>
+<li>Distinguish between different types of Noir functions</li>
+<li>Explain how Noir compiles to ZKP circuits</li>
+<li>Analyze Noir&apos;s type system and its relationship to ZKP mathematics</li>
+<li>Implement complex circuits using Noir&apos;s advanced features</li>
+<li>Debug and optimize Noir circuits for performance</li>
+</ul>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#the-philosophy-behind-noir">The Philosophy Behind Noir</a></li>
+<li><a href="#setting-up-your-noir-development-environment">Setting Up Your Noir Development Environment</a></li>
+<li><a href="#basic-noir-syntax">Basic Noir Syntax</a></li>
+<li><a href="#core-noir-concepts">Core Noir Concepts</a></li>
+<li><a href="#noirs-compilation-process">Noir&apos;s Compilation Process</a></li>
+<li><a href="#noirs-type-system">Noir&apos;s Type System</a></li>
+<li><a href="#noir-standard-library">Noir Standard Library</a></li>
+<li><a href="#proving-and-verification-with-nargo">Proving and Verification with Nargo</a></li>
+<li><a href="#advanced-noir-features">Advanced Noir Features</a></li>
+<li><a href="#circuit-optimization-in-noir">Circuit Optimization in Noir</a></li>
+<li><a href="#debugging-and-troubleshooting">Debugging and Troubleshooting</a></li>
+<li><a href="#real-world-noir-applications">Real-World Noir Applications</a></li>
+<li><a href="#visual-representations-and-diagrams">Visual Representations and Diagrams</a></li>
+<li><a href="#knowledge-check">Knowledge Check</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#enhanced-exercises-with-solutions">Enhanced Exercises with Solutions</a></li>
+</ol>
+<h2 id="introduction">Introduction</h2>
+<p>Welcome to Noir, the domain-specific language (DSL) designed specifically for writing zero-knowledge proof circuits! Created by the Aztec Network team, Noir aims to make ZKP development as accessible as traditional smart contract development. In this module, we&apos;ll explore Noir&apos;s syntax, core concepts, and how it abstracts away the complexity of underlying ZKP mathematics.</p>
+<p>The need for ZKP-specific languages arises because writing ZKP circuits directly with the underlying mathematics would be extremely complex and error-prone. Just as Solidity abstracts away Ethereum&apos;s execution model, Noir abstracts away the complex mathematics of zero-knowledge proofs. This allows developers to focus on expressing their computation logic rather than worrying about the underlying cryptographic implementation.</p>
+<p><strong>Analogy</strong>: Think of Noir as a high-level programming language for ZKPs, similar to how Python abstracts away the complexity of machine code. Just as you don&apos;t need to write assembly language to develop web applications, you don&apos;t need to do complex mathematical conversions to write ZKP circuits in Noir.</p>
+<h2 id="the-philosophy-behind-noir">The Philosophy Behind Noir</h2>
+<h3 id="why-a-new-language">Why a New Language?</h3>
+<p>Noir was created with these core principles in mind:</p>
+<ul>
+<li><strong>Accessibility</strong>: Make ZKP development approachable for mainstream developers who may not have deep mathematical backgrounds</li>
+<li><strong>Safety</strong>: Provide compile-time checks, type safety, and circuit validation to prevent common errors</li>
+<li><strong>Expressiveness</strong>: Allow developers to express complex constraints naturally using familiar programming paradigms</li>
+<li><strong>Abstraction</strong>: Hide the complexity of underlying ZKP mathematics while providing escape hatches when needed</li>
+<li><strong>Performance</strong>: Automatically optimize circuits during compilation for efficient proof generation and verification</li>
+<li><strong>Domain-Specific</strong>: Tailored specifically for the unique requirements of ZKP development</li>
+</ul>
+<h3 id="noir-vs-traditional-circuit-programming">Noir vs. Traditional Circuit Programming</h3>
+<p><strong>Traditional Approach</strong> (e.g., directly with mathematical concepts):</p>
+<ul>
+<li>Requires deep understanding of finite fields, polynomial arithmetic, and elliptic curves</li>
+<li>Manual conversion of logical operations to arithmetic constraints</li>
+<li>Error-prone due to complex mathematical manipulations</li>
+<li>Time-consuming to implement even simple circuits</li>
+</ul>
+<p><strong>Noir Approach</strong>:</p>
+<ul>
+<li>Familiar syntax similar to Rust</li>
+<li>Automatic constraint generation from high-level code</li>
+<li>Built-in safety features and type checking</li>
+<li>Focus on logic rather than mathematics</li>
+</ul>
+<h3 id="noirs-design-goals">Noir&apos;s Design Goals</h3>
+<ul>
+<li><strong>Familiar Syntax</strong>: Borrow concepts from Rust and modern programming languages, making it approachable for existing developers</li>
+<li><strong>Constraint-Oriented</strong>: Express mathematical constraints naturally through familiar control structures</li>
+<li><strong>Domain-Specific</strong>: Tailored specifically for ZKP development with built-in cryptographic operations</li>
+<li><strong>Compiler Optimization</strong>: Automatically optimize circuits for constraint count, proof size, and generation time</li>
+<li><strong>Backend Agnostic</strong>: Support for multiple ZKP backends without changing source code</li>
+</ul>
+<h2 id="setting-up-your-noir-development-environment">Setting Up Your Noir Development Environment</h2>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>Before installing Noir, ensure you have:</p>
+<ul>
+<li>A Unix-like environment (Linux, macOS, or Windows with WSL)</li>
+<li>Git installed</li>
+<li>Basic command-line knowledge</li>
+<li>Rust toolchain (optional but recommended for advanced usage)</li>
+</ul>
+<h3 id="installing-nargo">Installing Nargo</h3>
+<p>Nargo is Noir&apos;s package manager and build system (similar to Cargo for Rust). It handles compilation, proof generation, and verification.</p>
+<p><strong>Installation Method 1: Using noirup (Recommended)</strong></p>
+<pre><code class="lang-bash">curl -L https://raw.githubusercontent.com/noir-lang/noirup/main/install_noirup.sh | bash
+<span class="hljs-built_in">source</span> ~/.bashrc
+noirup -v latest
+</code></pre>
+<p><strong>Installation Method 2: Using Package Managers</strong></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># On macOS with Homebrew</span>
+brew install noir-lang
+
+<span class="hljs-comment"># On Linux (Ubuntu/Debian)</span>
+curl -L https://raw.githubusercontent.com/noir-lang/noirup/main/install_noirup.sh | bash
+<span class="hljs-built_in">source</span> ~/.bashrc
+noirup -v latest
+</code></pre>
+<p><strong>Verification of Installation</strong></p>
+<pre><code class="lang-bash">nargo --version
+</code></pre>
+<h3 id="creating-your-first-noir-project">Creating Your First Noir Project</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># Create a new Noir project</span>
+nargo new my_zkp_project
+<span class="hljs-built_in">cd</span> my_zkp_project
+
+<span class="hljs-comment"># Explore the project structure</span>
+ls -la
+<span class="hljs-comment"># You should see:</span>
+<span class="hljs-comment"># &#x251C;&#x2500;&#x2500; src/</span>
+<span class="hljs-comment"># &#x2502;   &#x2514;&#x2500;&#x2500; main.nr          # Your Noir code goes here</span>
+<span class="hljs-comment"># &#x251C;&#x2500;&#x2500; Nargo.toml           # Project configuration</span>
+<span class="hljs-comment"># &#x2514;&#x2500;&#x2500; Prover.toml          # Prover inputs for testing (optional)</span>
+</code></pre>
+<h3 id="project-structure-explained">Project Structure Explained</h3>
+<pre><code>my_zkp_project/
+&#x251C;&#x2500;&#x2500; src/
+&#x2502;   &#x2514;&#x2500;&#x2500; main.nr            # Main Noir source file
+&#x251C;&#x2500;&#x2500; Nargo.toml             # Project configuration (name, version, dependencies)
+&#x251C;&#x2500;&#x2500; Prover.toml            # Prover input values for testing
+&#x251C;&#x2500;&#x2500; Verifier.toml          # Verifier inputs (if needed)
+&#x2514;&#x2500;&#x2500; target/                # Compiled artifacts (auto-generated)
+</code></pre><h3 id="essential-nargo-commands">Essential Nargo Commands</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># Check syntax and compile without generating proof</span>
+nargo check
+
+<span class="hljs-comment"># Generate a proof with default or configured inputs</span>
+nargo prove
+
+<span class="hljs-comment"># Verify an existing proof</span>
+nargo verify
+
+<span class="hljs-comment"># Build the project (compilation only)</span>
+nargo build
+
+<span class="hljs-comment"># Run tests</span>
+nargo <span class="hljs-built_in">test</span>
+
+<span class="hljs-comment"># Update Noir to the latest version</span>
+noirup -v latest
+</code></pre>
+<h2 id="basic-noir-syntax">Basic Noir Syntax</h2>
+<h3 id="hello-world-circuit">Hello World Circuit</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// src/main.nr</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(x: Field, y: <span class="hljs-keyword">pub</span> Field) {
+    assert(x != <span class="hljs-number">0</span>);
+    assert(y == x * x);
+}
+</code></pre>
+<p>This simple circuit proves that <code>y</code> is the square of <code>x</code>, without revealing <code>x</code> itself. The prover knows <code>x</code> (private input), and the verifier sees that <code>y</code> (public input) is indeed the square of some value.</p>
+<h3 id="key-syntax-elements">Key Syntax Elements</h3>
+<h4 id="data-types-in-noir">Data Types in Noir</h4>
+<p><strong>1. Field Type</strong>
+The <code>Field</code> type represents elements in a prime field (typically a large prime field like the BN254 scalar field). It&apos;s the primary data type for computations in ZKP circuits.</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Basic Field operations</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">basic_operations</span></span>(a: Field, b: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> sum = a + b;
+    <span class="hljs-keyword">let</span> diff = a - b;
+    <span class="hljs-keyword">let</span> product = a * b;
+    <span class="hljs-keyword">let</span> division = a / b;  <span class="hljs-comment">// Only valid if b != 0</span>
+
+    assert(result == sum + diff + product + division);
+}
+</code></pre>
+<p><strong>2. Boolean Type</strong>
+The <code>bool</code> type represents Boolean values (true/false).</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">boolean_example</span></span>(condition: <span class="hljs-keyword">bool</span>, value: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">if</span> condition {
+        assert(result == value * <span class="hljs-number">2</span>);
+    } <span class="hljs-keyword">else</span> {
+        assert(result == value * <span class="hljs-number">3</span>);
+    }
+}
+</code></pre>
+<p><strong>3. Unsigned Integer Types</strong>
+Noir supports various unsigned integer types: <code>u8</code>, <code>u16</code>, <code>u32</code>, <code>u64</code>, which are useful for specific operations and range checks.</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">integer_operations</span></span>(a: <span class="hljs-keyword">u32</span>, b: <span class="hljs-keyword">u32</span>, result: <span class="hljs-keyword">pub</span> <span class="hljs-keyword">u32</span>) {
+    <span class="hljs-keyword">let</span> sum: <span class="hljs-keyword">u32</span> = a + b;
+    <span class="hljs-keyword">let</span> product: <span class="hljs-keyword">u32</span> = a * b;
+
+    <span class="hljs-comment">// Operations are performed in the field, but with bit-width constraints</span>
+    assert(result == sum + product);
+}
+</code></pre>
+<p><strong>4. Arrays</strong>
+Fixed-size arrays are useful for processing multiple values.</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">array_example</span></span>(values: [Field; <span class="hljs-number">5</span>], total: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> sum: Field = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">5</span> {
+        sum = sum + values[i];
+    }
+    assert(total == sum);
+}
+</code></pre>
+<p><strong>5. Constants</strong>
+Constants can be defined at the top level of a file.</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Constants</span>
+<span class="hljs-keyword">const</span> MAX_VALUE: Field = <span class="hljs-number">1000000</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">example_with_const</span></span>(input: Field, output: <span class="hljs-keyword">pub</span> Field) {
+    assert(input &lt; MAX_VALUE);
+    assert(output == input * <span class="hljs-number">2</span>);
+}
+</code></pre>
+<h4 id="function-types-and-signatures">Function Types and Signatures</h4>
+<p><strong>Main Function</strong>
+The <code>main</code> function is the entry point of your circuit. It defines the constraints that must be satisfied.</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Signature: parameter_name: type, or parameter_name: pub type for public parameters</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(private_input: Field, public_output: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Circuit logic goes here</span>
+    assert(public_output == private_input * <span class="hljs-number">2</span>);
+}
+</code></pre>
+<p><strong>Helper Functions</strong>
+You can define helper functions to organize your circuit logic.</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">square</span></span>(x: Field) -&gt; Field {
+    x * x
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">complex_circuit</span></span>(input: Field, output: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> intermediate = square(input) + input;
+    <span class="hljs-keyword">let</span> result = square(intermediate);
+    assert(output == result);
+}
+</code></pre>
+<h3 id="comments-and-documentation">Comments and Documentation</h3>
+<p>Noir supports various commenting styles:</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Single line comment</span>
+<span class="hljs-comment">/* Multi-line comment */</span>
+
+<span class="hljs-comment">/// Documentation comment for functions</span>
+<span class="hljs-comment">/// This function proves that the output is twice the input</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">documented_function</span></span>(input: Field, output: <span class="hljs-keyword">pub</span> Field) {
+    assert(output == input * <span class="hljs-number">2</span>);
+}
+
+<span class="hljs-comment">/*
+ * Multi-line documentation
+ * This circuit proves multiplication
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">multiply</span></span>(a: Field, b: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    assert(result == a * b);
+}
+</code></pre>
+<h2 id="core-noir-concepts">Core Noir Concepts</h2>
+<h3 id="1-public-vs-private-inputs">1. Public vs Private Inputs</h3>
+<p>The distinction between public and private inputs is fundamental to zero-knowledge proofs:</p>
+<p><strong>Private Inputs</strong> (no <code>pub</code> keyword):</p>
+<ul>
+<li>Known only to the prover</li>
+<li>Not revealed to the verifier</li>
+<li>Used to satisfy circuit constraints</li>
+<li>Represent the &quot;witness&quot; in ZKP terminology</li>
+</ul>
+<p><strong>Public Inputs</strong> (<code>pub</code> keyword):</p>
+<ul>
+<li>Visible to both prover and verifier</li>
+<li>Part of the statement being proven</li>
+<li>Used to verify that the computation was performed correctly</li>
+</ul>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">example_public_private</span></span>(
+    secret_age: Field,           <span class="hljs-comment">// PRIVATE: only prover knows this</span>
+    is_adult: <span class="hljs-keyword">bool</span>,              <span class="hljs-comment">// PRIVATE: derived from secret_age</span>
+    verification_result: <span class="hljs-keyword">pub</span> Field   <span class="hljs-comment">// PUBLIC: verifier sees this</span>
+) {
+    <span class="hljs-comment">// The prover knows the secret age and whether they&apos;re an adult</span>
+    <span class="hljs-comment">// The verifier only sees the verification result</span>
+
+    <span class="hljs-keyword">if</span> is_adult {
+        assert(verification_result == <span class="hljs-number">1</span>);
+    } <span class="hljs-keyword">else</span> {
+        assert(verification_result == <span class="hljs-number">0</span>);
+    }
+
+    <span class="hljs-comment">// Additional constraint to link secret_age to is_adult</span>
+    assert(secret_age &gt;= <span class="hljs-number">18</span> == is_adult);
+}
+</code></pre>
+<h3 id="2-assertions-the-foundation-of-constraints">2. Assertions: The Foundation of Constraints</h3>
+<p>Assertions are the fundamental building blocks of circuit constraints. Each <code>assert</code> statement creates one or more mathematical constraints that must be satisfied.</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">constraint_examples</span></span>(x: Field, y: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Basic equality constraint</span>
+    assert(x + y == <span class="hljs-number">5</span>);
+
+    <span class="hljs-comment">// Inequality constraint (actually creates two constraints in the background)</span>
+    assert(x != <span class="hljs-number">0</span>);
+
+    <span class="hljs-comment">// Complex constraint</span>
+    assert(result == x * x + y * y);
+
+    <span class="hljs-comment">// Multiple constraints combined</span>
+    assert(x &gt; <span class="hljs-number">0</span> &amp;&amp; y &gt; <span class="hljs-number">0</span>);  <span class="hljs-comment">// Creates x &gt; 0 AND y &gt; 0 constraints</span>
+}
+</code></pre>
+<h3 id="3-conditionals">3. Conditionals</h3>
+<p>Noir supports conditional logic, but keep in mind that both branches of an <code>if</code> statement are always evaluated in the underlying constraint system. Only the result of the correct branch is used in the final constraints.</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">conditional_logic</span></span>(x: Field, condition: <span class="hljs-keyword">bool</span>, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">if</span> condition {
+        <span class="hljs-comment">// Both branches are converted to constraints,</span>
+        <span class="hljs-comment">// but only the true branch affects the result</span>
+        assert(result == x * x);
+    } <span class="hljs-keyword">else</span> {
+        assert(result == x * <span class="hljs-number">2</span>);
+    }
+}
+</code></pre>
+<h3 id="4-functions-and-modularity">4. Functions and Modularity</h3>
+<p>Functions allow you to break down complex circuits into manageable components:</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Helper function to compute a hash</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">simple_hash</span></span>(a: Field, b: Field) -&gt; Field {
+    a * <span class="hljs-number">31</span> + b * <span class="hljs-number">17</span> + <span class="hljs-number">42</span>
+}
+
+<span class="hljs-comment">// Main circuit function</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">hash_verification</span></span>(input_a: Field, input_b: Field, expected_hash: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> computed_hash = simple_hash(input_a, input_b);
+    assert(computed_hash == expected_hash);
+}
+</code></pre>
+<h3 id="5-loops-and-iteration">5. Loops and Iteration</h3>
+<p>Noir supports bounded loops (with known iteration count at compile time):</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">sum_array</span></span>(values: [Field; <span class="hljs-number">10</span>], expected_sum: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> total: Field = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> i: <span class="hljs-keyword">u32</span> = <span class="hljs-number">0</span>;
+
+    <span class="hljs-keyword">while</span> i &lt; <span class="hljs-number">10</span> {
+        total = total + values[i <span class="hljs-keyword">as</span> Field];
+        i = i + <span class="hljs-number">1</span>;
+    }
+
+    assert(total == expected_sum);
+}
+</code></pre>
+<h2 id="noirs-compilation-process">Noir&apos;s Compilation Process</h2>
+<h3 id="from-noir-to-proof-detailed-pipeline">From Noir to Proof: Detailed Pipeline</h3>
+<p>The compilation process in Noir is sophisticated, involving multiple stages:</p>
+<p><strong>1. Parsing</strong></p>
+<ul>
+<li>The Noir source code is parsed into an Abstract Syntax Tree (AST)</li>
+<li>Syntax errors are caught at this stage</li>
+<li>The structure of the code is validated</li>
+</ul>
+<p><strong>2. Type Checking</strong></p>
+<ul>
+<li>All variable types are checked for consistency</li>
+<li>Function signatures are validated</li>
+<li>Field arithmetic constraints are verified</li>
+<li>Potential overflow/underflow conditions are checked</li>
+</ul>
+<p><strong>3. Constraint Generation</strong></p>
+<ul>
+<li>The AST is converted to an intermediate representation focused on arithmetic constraints</li>
+<li>High-level operations are broken down into basic arithmetic operations (+, -, *, /)</li>
+<li>Control flow is converted to arithmetic constraints</li>
+</ul>
+<p><strong>4. Circuit Optimization</strong></p>
+<ul>
+<li>Common subexpression elimination</li>
+<li>Constant folding and propagation</li>
+<li>Constraint count reduction</li>
+<li>Backend-specific optimizations</li>
+</ul>
+<p><strong>5. Backend Compilation</strong></p>
+<ul>
+<li>The optimized constraints are compiled for the target backend (Plonk, Plonkup, etc.)</li>
+<li>Backend-specific optimizations are applied</li>
+<li>The final circuit representation is generated</li>
+</ul>
+<p><strong>6. Proof Generation (Optional)</strong></p>
+<ul>
+<li>If proof generation is requested, the circuit is executed with specific inputs</li>
+<li>A cryptographic proof is created that attests to the circuit&apos;s correct execution</li>
+</ul>
+<h3 id="understanding-the-intermediate-representations">Understanding the Intermediate Representations</h3>
+<p><strong>High-Level IR</strong>: Close to original Noir code, maintains structure
+<strong>Mid-Level IR</strong>: Abstracts away high-level language features
+<strong>Low-Level IR</strong>: Arithmetic circuit representation
+<strong>Backend IR</strong>: Target-specific circuit representation</p>
+<h3 id="compilation-optimization-examples">Compilation Optimization Examples</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// Original code</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">inefficient</span></span>(x: Field, y: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> temp1 = x * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> temp2 = temp1 + <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">let</span> temp3 = temp2 * y;
+    <span class="hljs-keyword">let</span> temp4 = temp3 + temp2;
+    assert(result == temp4);
+}
+
+<span class="hljs-comment">// After optimization (conceptual)</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">optimized</span></span>(x: Field, y: <span class="hljs-keyword">pub</span> Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> expression = (x * <span class="hljs-number">2</span> + <span class="hljs-number">5</span>) * y + (x * <span class="hljs-number">2</span> + <span class="hljs-number">5</span>);
+    assert(result == expression);
+}
+</code></pre>
+<h2 id="noirs-type-system">Noir&apos;s Type System</h2>
+<h3 id="field-type-the-workhorse-of-zkps">Field Type: The Workhorse of ZKPs</h3>
+<p>The <code>Field</code> type is central to Noir programming. It represents elements in a finite field (usually a large prime field like BN254&apos;s scalar field).</p>
+<p><strong>Field Properties</strong>:</p>
+<ul>
+<li>Closed under +, -, *, / operations</li>
+<li>Has a large prime modulus (e.g., ~2^254 for BN254)</li>
+<li>Supports equality and inequality comparisons</li>
+<li>Efficient arithmetic operations</li>
+</ul>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">field_operations_demo</span></span>(a: Field, b: Field, results: <span class="hljs-keyword">pub</span> [Field; <span class="hljs-number">4</span>]) {
+    <span class="hljs-comment">// All operations stay within the field</span>
+    <span class="hljs-keyword">let</span> sum = a + b;           <span class="hljs-comment">// Addition in the field</span>
+    <span class="hljs-keyword">let</span> difference = a - b;    <span class="hljs-comment">// Subtraction in the field</span>
+    <span class="hljs-keyword">let</span> product = a * b;       <span class="hljs-comment">// Multiplication in the field</span>
+    <span class="hljs-keyword">let</span> ratio = a / b;         <span class="hljs-comment">// Division in the field (b != 0)</span>
+
+    assert(results[<span class="hljs-number">0</span>] == sum);
+    assert(results[<span class="hljs-number">1</span>] == difference);
+    assert(results[<span class="hljs-number">2</span>] == product);
+    assert(results[<span class="hljs-number">3</span>] == ratio);
+}
+</code></pre>
+<h3 id="integer-types-with-bit-constraints">Integer Types with Bit Constraints</h3>
+<p>Noir provides integer types with explicit bit widths, useful for range checks and bit operations:</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">integer_constraints</span></span>(x: <span class="hljs-keyword">u8</span>, y: u16, result: <span class="hljs-keyword">pub</span> <span class="hljs-keyword">u32</span>) {
+    <span class="hljs-comment">// These types ensure values fit within specified bit ranges</span>
+    <span class="hljs-comment">// u8: 0 to 2^8 - 1 (0-255)</span>
+    <span class="hljs-comment">// u16: 0 to 2^16 - 1 (0-65535)</span>
+    <span class="hljs-comment">// etc.</span>
+
+    <span class="hljs-keyword">let</span> sum: <span class="hljs-keyword">u32</span> = x <span class="hljs-keyword">as</span> <span class="hljs-keyword">u32</span> + y <span class="hljs-keyword">as</span> <span class="hljs-keyword">u32</span>;
+    assert(result == sum);
+
+    <span class="hljs-comment">// The compiler ensures x and y are within their valid ranges</span>
+}
+</code></pre>
+<h3 id="boolean-type-and-logical-operations">Boolean Type and Logical Operations</h3>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">boolean_operations</span></span>(a: <span class="hljs-keyword">bool</span>, b: <span class="hljs-keyword">bool</span>, result: <span class="hljs-keyword">pub</span> <span class="hljs-keyword">bool</span>) {
+    <span class="hljs-keyword">let</span> and_result = a &amp;&amp; b;
+    <span class="hljs-keyword">let</span> or_result = a || b;
+    <span class="hljs-keyword">let</span> not_a = !a;
+
+    <span class="hljs-comment">// Complex boolean expression</span>
+    <span class="hljs-keyword">let</span> complex = (a &amp;&amp; !b) || (!a &amp;&amp; b);  <span class="hljs-comment">// XOR equivalent</span>
+
+    assert(result == complex);
+}
+</code></pre>
+<h3 id="array-types-and-operations">Array Types and Operations</h3>
+<p>Arrays in Noir have fixed sizes known at compile time:</p>
+<pre><code class="lang-rust"><span class="hljs-keyword">const</span> ARRAY_SIZE: <span class="hljs-keyword">u32</span> = <span class="hljs-number">5</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">array_operations</span></span>(data: [Field; ARRAY_SIZE <span class="hljs-keyword">as</span> Field],
+                   operations: [<span class="hljs-keyword">bool</span>; ARRAY_SIZE <span class="hljs-keyword">as</span> Field],
+                   results: <span class="hljs-keyword">pub</span> [Field; ARRAY_SIZE <span class="hljs-keyword">as</span> Field]) {
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..ARRAY_SIZE {
+        <span class="hljs-keyword">if</span> operations[i <span class="hljs-keyword">as</span> Field] {
+            <span class="hljs-comment">// Square the value if operation is true</span>
+            assert(results[i <span class="hljs-keyword">as</span> Field] == data[i <span class="hljs-keyword">as</span> Field] * data[i <span class="hljs-keyword">as</span> Field]);
+        } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">// Double the value if operation is false</span>
+            assert(results[i <span class="hljs-keyword">as</span> Field] == data[i <span class="hljs-keyword">as</span> Field] * <span class="hljs-number">2</span>);
+        }
+    }
+}
+</code></pre>
+<h2 id="noir-standard-library">Noir Standard Library</h2>
+<h3 id="built-in-functions-for-common-operations">Built-in Functions for Common Operations</h3>
+<p>Noir provides a standard library with functions for common ZKP operations:</p>
+<h4 id="range-checks">Range Checks</h4>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">range_checked_computation</span></span>(value: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Ensure value fits in 16 bits (0 to 65535)</span>
+    value.assert_mineq(<span class="hljs-number">65535</span>);
+
+    <span class="hljs-comment">// Perform computation</span>
+    <span class="hljs-keyword">let</span> processed = value * <span class="hljs-number">3</span> + <span class="hljs-number">42</span>;
+    assert(result == processed);
+}
+</code></pre>
+<h4 id="bit-operations">Bit Operations</h4>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">bit_manipulation</span></span>(input: Field, mask: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Extract bits using standard library functions</span>
+    <span class="hljs-keyword">let</span> bits = std::array::field_to_bits(input, <span class="hljs-number">16</span>);  <span class="hljs-comment">// Convert to 16-bit array</span>
+
+    <span class="hljs-comment">// Perform bit operations</span>
+    <span class="hljs-keyword">let</span> masked = input &amp; mask;
+    assert(result == masked);
+}
+</code></pre>
+<h4 id="comparison-functions">Comparison Functions</h4>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">comparison_example</span></span>(a: Field, b: Field, max_result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Get the maximum of two values</span>
+    <span class="hljs-keyword">let</span> max_val = std::cmp::max(a, b);
+    assert(max_result == max_val);
+
+    <span class="hljs-comment">// Other comparison functions available:</span>
+    <span class="hljs-comment">// std::cmp::min(a, b)</span>
+    <span class="hljs-comment">// std::cmp::clamp(value, min, max)</span>
+}
+</code></pre>
+<h4 id="hash-functions-backend-dependent">Hash Functions (Backend Dependent)</h4>
+<pre><code class="lang-rust"><span class="hljs-comment">// Note: Hash functions depend on the backend and may not be available in all versions</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">hash_example</span></span>(data: Field, expected_hash: <span class="hljs-keyword">pub</span> [Field; <span class="hljs-number">4</span>]) {
+    <span class="hljs-comment">// This is conceptual - actual availability depends on backend</span>
+    <span class="hljs-keyword">let</span> computed_hash = std::hash::hash_to_field([data]);
+
+    <span class="hljs-comment">// Verify each component of the hash</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">4</span> {
+        assert(expected_hash[i] == computed_hash[i]);
+    }
+}
+</code></pre>
+<h2 id="proving-and-verification-with-nargo">Proving and Verification with Nargo</h2>
+<h3 id="the-complete-workflow">The Complete Workflow</h3>
+<p><strong>1. Circuit Design and Implementation</strong></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Create and edit src/main.nr</span>
+</code></pre>
+<p><strong>2. Compilation Check</strong></p>
+<pre><code class="lang-bash">nargo check
+</code></pre>
+<p><strong>3. Providing Input Values</strong>
+Create <code>Prover.toml</code> in your project directory:</p>
+<pre><code class="lang-toml"><span class="hljs-comment"># Prover.toml - inputs for proof generation</span>
+<span class="hljs-attr">x</span> = <span class="hljs-string">&quot;42&quot;</span>
+<span class="hljs-attr">y</span> = <span class="hljs-string">&quot;1764&quot;</span>  # <span class="hljs-number">42</span> squared, for the square example circuit
+</code></pre>
+<p><strong>4. Generating a Proof</strong></p>
+<pre><code class="lang-bash">nargo prove my_proof
+<span class="hljs-comment"># Creates proof artifacts in the target directory</span>
+</code></pre>
+<p><strong>5. Verifying the Proof</strong></p>
+<pre><code class="lang-bash">nargo verify my_proof
+<span class="hljs-comment"># Verifies the proof without knowing the private inputs</span>
+</code></pre>
+<h3 id="advanced-nargo-features">Advanced Nargo Features</h3>
+<p><strong>Managing Multiple Proofs</strong></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Generate different proofs for the same circuit with different inputs</span>
+nargo prove proof1
+nargo prove proof2
+
+<span class="hljs-comment"># Verify specific proofs</span>
+nargo verify proof1
+</code></pre>
+<p><strong>Using Different Input Files</strong></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># Generate proof with specific input file</span>
+nargo prove my_proof --prover-input-file custom_inputs.toml
+</code></pre>
+<p><strong>Checking Constraints</strong></p>
+<pre><code class="lang-bash"><span class="hljs-comment"># See how many constraints your circuit generates</span>
+nargo info
+<span class="hljs-comment"># This is important for performance optimization</span>
+</code></pre>
+<h2 id="advanced-noir-features">Advanced Noir Features</h2>
+<h3 id="structs-and-custom-types">Structs and Custom Types</h3>
+<p>Noir supports defining custom data structures:</p>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Point</span></span> {
+    x: Field,
+    y: Field,
+}
+
+<span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Line</span></span> {
+    start: Point,
+    end: Point,
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">line_length</span></span>(line: Line, expected_length_sq: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> dx = line.end.x - line.start.x;
+    <span class="hljs-keyword">let</span> dy = line.end.y - line.start.y;
+    <span class="hljs-keyword">let</span> length_sq = dx * dx + dy * dy;
+    assert(length_sq == expected_length_sq);
+}
+</code></pre>
+<h3 id="enums-in-more-recent-versions">Enums (in more recent versions)</h3>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Operation</span></span> {
+    Add,
+    Multiply,
+    Subtract,
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">operation_circuit</span></span>(op: Operation, a: Field, b: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">match</span> op {
+        Operation::Add =&gt; assert(result == a + b),
+        Operation::Multiply =&gt; assert(result == a * b),
+        Operation::Subtract =&gt; assert(result == a - b),
+    }
+}
+</code></pre>
+<h3 id="advanced-control-flow">Advanced Control Flow</h3>
+<p><strong>Complex Conditionals</strong></p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">complex_logic</span></span>(x: Field, y: Field, mode: <span class="hljs-keyword">u8</span>, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">if</span> mode == <span class="hljs-number">0</span> {
+        assert(result == x + y);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> mode == <span class="hljs-number">1</span> {
+        assert(result == x * y);
+    } <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> mode == <span class="hljs-number">2</span> {
+        assert(result == x - y);
+    } <span class="hljs-keyword">else</span> {
+        assert(result == x / y);  <span class="hljs-comment">// Requires y != 0</span>
+    }
+}
+</code></pre>
+<p><strong>Nested Conditionals</strong></p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">nested_conditions</span></span>(x: Field, y: Field, condition1: <span class="hljs-keyword">bool</span>, condition2: <span class="hljs-keyword">bool</span>, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">if</span> condition1 {
+        <span class="hljs-keyword">if</span> condition2 {
+            assert(result == x * y);
+        } <span class="hljs-keyword">else</span> {
+            assert(result == x + y);
+        }
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-keyword">if</span> condition2 {
+            assert(result == x - y);
+        } <span class="hljs-keyword">else</span> {
+            assert(result == x / y);
+        }
+    }
+}
+</code></pre>
+<h2 id="circuit-optimization-in-noir">Circuit Optimization in Noir</h2>
+<h3 id="understanding-constraint-count">Understanding Constraint Count</h3>
+<p>The efficiency of a ZKP circuit is largely determined by the number of constraints it contains. Each constraint adds to both proving time and the mathematical complexity of the proof.</p>
+<p><strong>Good Practice: Minimize Constraint Count</strong></p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Less efficient - more constraints</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">inefficient_example</span></span>(a: Field, b: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> temp1 = a + <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">let</span> temp2 = temp1 * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> temp3 = temp2 + b;
+    assert(result == temp3);
+}
+
+<span class="hljs-comment">// More efficient - fewer constraints</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">efficient_example</span></span>(a: Field, b: <span class="hljs-keyword">pub</span> Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> calculation = (a + <span class="hljs-number">5</span>) * <span class="hljs-number">2</span> + b;
+    assert(result == calculation);
+}
+</code></pre>
+<h3 id="loop-optimization">Loop Optimization</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// Inefficient: each iteration creates new constraints</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">inefficient_sum</span></span>(values: [Field; <span class="hljs-number">100</span>], total: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> sum: Field = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">100</span> {
+        sum = sum + values[i];
+    }
+    assert(total == sum);
+}
+
+<span class="hljs-comment">// More efficient: minimize operations inside loops where possible</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">efficient_sum</span></span>(values: [Field; <span class="hljs-number">100</span>], total: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> sum: Field = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">100</span> {
+        sum += values[i];  <span class="hljs-comment">// Compound assignment is more efficient</span>
+    }
+    assert(total == sum);
+}
+</code></pre>
+<h3 id="function-inlining">Function Inlining</h3>
+<p>Noir automatically inlines simple functions, but you can influence this:</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Simple function that will likely be inlined</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">square</span></span>(x: Field) -&gt; Field {
+    x * x
+}
+
+<span class="hljs-comment">// More complex function - compiler decides whether to inline</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">complex_computation</span></span>(x: Field) -&gt; Field {
+    <span class="hljs-keyword">let</span> squared = square(x);
+    <span class="hljs-keyword">let</span> cubed = squared * x;
+    cubed + x + <span class="hljs-number">1</span>
+}
+</code></pre>
+<h2 id="debugging-and-troubleshooting">Debugging and Troubleshooting</h2>
+<h3 id="common-compilation-errors">Common Compilation Errors</h3>
+<p><strong>Error: Unconstrained Variable</strong></p>
+<pre><code class="lang-rust"><span class="hljs-comment">// This will cause an error - result is never constrained!</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">wrong_example</span></span>(input: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> intermediate = input * <span class="hljs-number">2</span>;
+    <span class="hljs-comment">// result is not connected to any computation!</span>
+}
+</code></pre>
+<p><strong>Corrected version:</strong></p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">correct_example</span></span>(input: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> intermediate = input * <span class="hljs-number">2</span>;
+    assert(result == intermediate);  <span class="hljs-comment">// Now result is properly constrained!</span>
+}
+</code></pre>
+<p><strong>Error: Constraint Not Satisfiable</strong></p>
+<pre><code class="lang-rust"><span class="hljs-comment">// This will fail if the inputs don&apos;t satisfy the constraints</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">impossible_constraints</span></span>(x: Field, y: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    assert(x == <span class="hljs-number">5</span>);    <span class="hljs-comment">// If x != 5, this fails</span>
+    assert(y == <span class="hljs-number">10</span>);   <span class="hljs-comment">// If y != 10, this fails</span>
+    assert(result == x + y);
+}
+</code></pre>
+<h3 id="debugging-strategies">Debugging Strategies</h3>
+<p><strong>1. Check Your Prover.toml</strong>
+Ensure input values satisfy all circuit constraints:</p>
+<pre><code class="lang-toml"><span class="hljs-comment"># Correct inputs for the circuit</span>
+<span class="hljs-attr">x</span> = <span class="hljs-string">&quot;5&quot;</span>
+<span class="hljs-attr">y</span> = <span class="hljs-string">&quot;10&quot;</span>
+<span class="hljs-attr">result</span> = <span class="hljs-string">&quot;15&quot;</span>  # <span class="hljs-number">5</span> + <span class="hljs-number">10</span> = <span class="hljs-number">15</span>
+</code></pre>
+<p><strong>2. Use nargo check Frequently</strong>
+Catch errors early in the development process.</p>
+<p><strong>3. Start Simple</strong>
+Begin with basic circuits and gradually add complexity.</p>
+<p><strong>4. Test with Known Values</strong>
+Verify your circuit works with simple, predictable inputs first.</p>
+<h3 id="error-messages-and-solutions">Error Messages and Solutions</h3>
+<p><strong>&quot;Failed to satisfy all constraints&quot;</strong></p>
+<ul>
+<li>Cause: Input values don&apos;t satisfy the circuit constraints</li>
+<li>Solution: Check your Prover.toml values against the circuit logic</li>
+</ul>
+<p><strong>&quot;Type mismatch&quot;</strong></p>
+<ul>
+<li>Cause: Using wrong types in operations</li>
+<li>Solution: Verify all variable types match expected operations</li>
+</ul>
+<p><strong>&quot;Array out of bounds&quot;</strong></p>
+<ul>
+<li>Cause: Accessing array elements beyond the declared size</li>
+<li>Solution: Use proper loop bounds (0 to array_length - 1)</li>
+</ul>
+<h2 id="real-world-noir-applications">Real-World Noir Applications</h2>
+<h3 id="1-private-voting-systems">1. Private Voting Systems</h3>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Vote</span></span> {
+    candidate_id: Field,
+    vote_weight: Field,
+    nonce: Field,  <span class="hljs-comment">// To prevent replay attacks</span>
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">private_vote</span></span>(vote: Vote, total_votes: <span class="hljs-keyword">pub</span> [Field; <span class="hljs-number">5</span>]) {
+    <span class="hljs-comment">// Verify candidate ID is valid (0-4 for 5 candidates)</span>
+    vote.candidate_id.assert_mineq(<span class="hljs-number">4</span>);
+
+    <span class="hljs-comment">// Verify vote weight is valid</span>
+    vote.vote_weight.assert_mineq(<span class="hljs-number">1</span>);  <span class="hljs-comment">// For simple one-person-one-vote</span>
+
+    <span class="hljs-comment">// Add this vote to the running total</span>
+    <span class="hljs-comment">// This would be part of a larger voting aggregation system</span>
+    assert(total_votes[vote.candidate_id <span class="hljs-keyword">as</span> <span class="hljs-keyword">u32</span>] &gt;= vote.vote_weight);
+}
+</code></pre>
+<h3 id="2-private-financial-verification">2. Private Financial Verification</h3>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">BalanceProof</span></span> {
+    private_balance: Field,
+    min_balance: Field,
+    public_commitment: <span class="hljs-keyword">pub</span> Field,
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">minimum_balance_proof</span></span>(proof: BalanceProof) {
+    <span class="hljs-comment">// Prove that balance is at least the minimum without revealing exact balance</span>
+    assert(proof.private_balance &gt;= proof.min_balance);
+
+    <span class="hljs-comment">// Prove knowledge of the private balance through commitment</span>
+    <span class="hljs-keyword">let</span> expected_commitment = proof.private_balance * <span class="hljs-number">17</span> + proof.min_balance * <span class="hljs-number">23</span>;
+    assert(proof.public_commitment == expected_commitment);
+}
+</code></pre>
+<h3 id="3-supply-chain-provenance">3. Supply Chain Provenance</h3>
+<pre><code class="lang-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">ProductProvenance</span></span> {
+    product_id: Field,
+    origin_hash: Field,
+    current_hash: Field,
+    transfer_sequence: [Field; <span class="hljs-number">10</span>],  <span class="hljs-comment">// Track 10 transfer steps</span>
+    verification_key: <span class="hljs-keyword">pub</span> Field,
+}
+
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">provenance_verification</span></span>(proof: ProductProvenance) {
+    <span class="hljs-comment">// Verify the product chain of custody</span>
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> computed_hash = proof.origin_hash;
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">10</span> {
+        <span class="hljs-comment">// Each transfer updates the hash</span>
+        computed_hash = computed_hash * <span class="hljs-number">31</span> + proof.transfer_sequence[i];
+    }
+
+    assert(computed_hash == proof.current_hash);
+
+    <span class="hljs-comment">// Verify ownership of verification key</span>
+    <span class="hljs-keyword">let</span> key_check = proof.current_hash * <span class="hljs-number">13</span> + proof.product_id * <span class="hljs-number">7</span>;
+    assert(key_check == proof.verification_key);
+}
+</code></pre>
+<h2 id="visual-representations-and-diagrams">Visual Representations and Diagrams</h2>
+<h3 id="diagram-1-noir-compilation-pipeline">Diagram 1: Noir Compilation Pipeline</h3>
+<pre><code>Noir Source Code (.nr files)
+         |
+         v
+     Parsing (AST Generation)
+         |
+         v
+     Type Checking &amp; Validation
+         |
+         v
+   Constraint Generation
+         |
+         v
+   Circuit Optimization
+         |
+         v
+    Backend Compilation
+         |
+         v
+   Executable Circuit
+         |
+         v
+   Proving/Verification
+</code></pre><h3 id="diagram-2-public-vs-private-data-flow">Diagram 2: Public vs Private Data Flow</h3>
+<pre><code>Prover (Private Input)             Circuit (Constraints)            Verifier (Public Output)
+      |                                      |                              |
+      |--- Private: secret_age (25) --------&gt;|                              |
+      |                                      |--- age &gt;= 18 = true -------&gt;|--- Public: is_adult (1)
+      |--- Private: secret_key (42) --------&gt;|                              |
+      |                                      |--- valid_key = true -------&gt;|--- Public: access_granted (1)
+      |                                      |                              |
+</code></pre><h3 id="diagram-3-noir-project-structure">Diagram 3: Noir Project Structure</h3>
+<pre><code>Project Root/
+&#x251C;&#x2500;&#x2500; src/
+&#x2502;   &#x2514;&#x2500;&#x2500; main.nr (main circuit code)
+&#x251C;&#x2500;&#x2500; Nargo.toml (project config)
+&#x251C;&#x2500;&#x2500; Prover.toml (input values)
+&#x251C;&#x2500;&#x2500; target/ (compiled artifacts)
+&#x2502;   &#x251C;&#x2500;&#x2500; proofs/ (generated proofs)
+&#x2502;   &#x251C;&#x2500;&#x2500; circuits/ (compiled circuits)
+&#x2502;   &#x2514;&#x2500;&#x2500; ...
+&#x2514;&#x2500;&#x2500; lib/ (if using libraries)
+</code></pre><h2 id="knowledge-check">Knowledge Check</h2>
+<p>Consider these questions before continuing:</p>
+<ol>
+<li>What is the difference between public (<code>pub</code>) and private inputs in Noir? (Hint: Think about who sees what)</li>
+<li>How do assertions work in Noir, and what role do they play in ZKP circuits?</li>
+<li>What are the main steps in Noir&apos;s compilation process?</li>
+<li>Why is it important to consider constraint count when optimizing Noir circuits?</li>
+<li>What types of errors might you encounter when writing Noir circuits, and how can you debug them?</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>In this module, you&apos;ve learned about Noir, the domain-specific language for ZKP development:</p>
+<ul>
+<li>The philosophy and design goals behind Noir, emphasizing accessibility and safety</li>
+<li>How to set up and use the Noir development environment with Nargo</li>
+<li>Core syntax including data types, functions, and control structures</li>
+<li>The compilation process from Noir to ZKP circuits, including optimization stages</li>
+<li>Advanced features like structs, enums, and complex control flow</li>
+<li>Circuit optimization techniques for performance</li>
+<li>Debugging strategies for common issues</li>
+<li>Real-world applications of Noir circuits</li>
+</ul>
+<p>Noir significantly lowers the barrier to entry for ZKP development by providing familiar syntax while handling the mathematical complexity under the hood. The language is designed specifically for ZKP development, with built-in safety features and optimization capabilities.</p>
+<p>In the next module, we&apos;ll put this knowledge into practice by writing our first proof circuits in Noir, starting with basic arithmetic operations and gradually building to more complex privacy-preserving computations.</p>
+<h2 id="enhanced-exercises-with-solutions">Enhanced Exercises with Solutions</h2>
+<h3 id="exercise-41-environment-setup">Exercise 4.1: Environment Setup</h3>
+<ol>
+<li><p>Install Noir on your system following the instructions provided
+Solution: Follow the installation steps with <code>curl -L https://raw.githubusercontent.com/noir-lang/noirup/main/install_noirup.sh | bash</code>, then <code>noirup -v latest</code>, and verify with <code>nargo --version</code>.</p>
+</li>
+<li><p>Create a new Noir project and run through the basic commands
+Solution: <code>nargo new test_project &amp;&amp; cd test_project &amp;&amp; nargo check &amp;&amp; nargo prove &amp;&amp; nargo verify</code></p>
+</li>
+<li><p>Document any issues you encounter and how you resolved them
+Solution: Common issues include Rust toolchain conflicts, permission issues with installation script, or network problems. Solutions typically involve ensuring proper permissions, having internet connectivity, or updating system packages.</p>
+</li>
+</ol>
+<h3 id="exercise-42-basic-syntax-practice">Exercise 4.2: Basic Syntax Practice</h3>
+<ol>
+<li><p>Write a Noir circuit that proves knowledge of the factors of 143 (11 * 13)
+Solution:</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(factor1: Field, factor2: Field, public_product: <span class="hljs-keyword">pub</span> Field) {
+    assert(factor1 * factor2 == <span class="hljs-number">143</span>);
+    assert(public_product == <span class="hljs-number">143</span>);
+}
+</code></pre>
+<p>Prover.toml: <code>factor1 = &quot;11&quot;</code>, <code>factor2 = &quot;13&quot;</code>, <code>public_product = &quot;143&quot;</code></p>
+</li>
+<li><p>Create a range check circuit that verifies a value is between 1 and 100
+Solution:</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(secret_value: Field, dummy: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Check lower bound: secret_value &gt;= 1</span>
+    assert(secret_value &gt;= <span class="hljs-number">1</span>);
+    <span class="hljs-comment">// Check upper bound: secret_value &lt;= 100</span>
+    secret_value.assert_mineq(<span class="hljs-number">100</span>);
+    assert(dummy == <span class="hljs-number">0</span>);
+}
+</code></pre>
+</li>
+<li><p>Implement a simple conditional circuit that squares a number if positive, doubles it if negative
+Solution:</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(input: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Check if positive or negative using a boolean flag</span>
+    <span class="hljs-keyword">let</span> is_positive = input &gt;= <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">if</span> is_positive {
+        assert(result == input * input);
+    } <span class="hljs-keyword">else</span> {
+        assert(result == input * <span class="hljs-number">2</span>);
+    }
+}
+</code></pre>
+</li>
+</ol>
+<h3 id="exercise-43-understanding-compilation">Exercise 4.3: Understanding Compilation</h3>
+<ol>
+<li><p>Explain each step of Noir&apos;s compilation process in your own words
+Solution:</p>
+<ul>
+<li>Parsing: Converting source code to abstract syntax tree</li>
+<li>Type Checking: Ensuring type safety and semantic validity</li>
+<li>Constraint Generation: Converting high-level code to arithmetic constraints</li>
+<li>Optimization: Reducing constraint count and improving efficiency</li>
+<li>Backend Compilation: Converting to target proof system format</li>
+</ul>
+</li>
+<li><p>Why is optimization important in the compilation pipeline?
+Solution: Fewer constraints mean faster proving time and smaller proof sizes, making the ZKP more practical for real-world applications.</p>
+</li>
+<li><p>How do backends affect the final proof system used?
+Solution: Different backends (Plonk, Plonkup, etc.) generate different types of proofs with different performance characteristics and features (like lookup tables).</p>
+</li>
+</ol>
+<h3 id="exercise-44-advanced-noir-concepts">Exercise 4.4: Advanced Noir Concepts</h3>
+<p>Create a Noir circuit that implements a simple private auction where bidders can prove they have bid above a minimum without revealing their exact bid amount.</p>
+<p>Solution:</p>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">private_auction_bid</span></span>(
+    private_bid: Field,           <span class="hljs-comment">// Bidder&apos;s private bid amount</span>
+    min_bid: Field,               <span class="hljs-comment">// Minimum allowed bid (public)</span>
+    max_bid: Field,               <span class="hljs-comment">// Maximum expected bid (for range check)</span>
+    bid_commitment: <span class="hljs-keyword">pub</span> Field     <span class="hljs-comment">// Commitment to the bid for verification</span>
+) {
+    <span class="hljs-comment">// Verify the bid is within acceptable range</span>
+    assert(private_bid &gt;= min_bid);     <span class="hljs-comment">// Bid must meet minimum</span>
+    private_bid.assert_mineq(max_bid);  <span class="hljs-comment">// Bid must not exceed maximum</span>
+
+    <span class="hljs-comment">// Create a commitment to show knowledge of the bid</span>
+    <span class="hljs-comment">// This allows verification without revealing the exact amount</span>
+    <span class="hljs-keyword">let</span> computed_commitment = private_bid * <span class="hljs-number">17</span> + min_bid * <span class="hljs-number">23</span> + max_bid * <span class="hljs-number">7</span>;
+    assert(bid_commitment == computed_commitment);
+}
+</code></pre>
+<p>This circuit allows a bidder to prove their bid meets the minimum requirement without revealing the exact bid amount, maintaining privacy while ensuring rule compliance.</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="module-3-practical-zkp-concepts.html" class="navigation navigation-prev " aria-label="Previous page: Module 3: Practical ZKP Concepts">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="module-5-basic-proof-circuits.html" class="navigation navigation-next " aria-label="Next page: Module 5: Basic Proof Circuits">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Module 4: Introduction to Noir","level":"1.5","depth":1,"next":{"title":"Module 5: Basic Proof Circuits","level":"1.6","depth":1,"path":"modules/module-5-basic-proof-circuits.md","ref":"modules/module-5-basic-proof-circuits.md","articles":[]},"previous":{"title":"Module 3: Practical ZKP Concepts","level":"1.4","depth":1,"path":"modules/module-3-practical-zkp-concepts.md","ref":"modules/module-3-practical-zkp-concepts.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"modules/module-4-introduction-noir.md","mtime":"2025-11-25T14:35:28.964Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-11-25T14:58:03.317Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

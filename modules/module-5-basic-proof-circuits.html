@@ -1,0 +1,632 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Module 5: Basic Proof Circuits · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="module-6-advanced-techniques.html" />
+    
+    
+    <link rel="prev" href="module-4-introduction-noir.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="module-1-mathematical-foundations.html">
+            
+                <a href="module-1-mathematical-foundations.html">
+            
+                    
+                    Module 1: Mathematical Foundations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="module-2-introduction-zkp.html">
+            
+                <a href="module-2-introduction-zkp.html">
+            
+                    
+                    Module 2: Introduction to ZKPs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="module-3-practical-zkp-concepts.html">
+            
+                <a href="module-3-practical-zkp-concepts.html">
+            
+                    
+                    Module 3: Practical ZKP Concepts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="module-4-introduction-noir.html">
+            
+                <a href="module-4-introduction-noir.html">
+            
+                    
+                    Module 4: Introduction to Noir
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6" data-path="module-5-basic-proof-circuits.html">
+            
+                <a href="module-5-basic-proof-circuits.html">
+            
+                    
+                    Module 5: Basic Proof Circuits
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="module-6-advanced-techniques.html">
+            
+                <a href="module-6-advanced-techniques.html">
+            
+                    
+                    Module 6: Advanced Techniques
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../additional-resources.html">
+            
+                <a href="../additional-resources.html">
+            
+                    
+                    Additional Resources
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Module 5: Basic Proof Circuits</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="module-5-writing-basic-proof-circuits-in-noir">Module 5: Writing Basic Proof Circuits in Noir</h1>
+<h2 id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this lesson, you will be able to:</p>
+<ul>
+<li>Write basic arithmetic constraint circuits in Noir</li>
+<li>Implement range checks to prove knowledge of bounded values</li>
+<li>Create circuits that prove knowledge of discrete logarithms</li>
+<li>Develop circuits for simple privacy-preserving computations</li>
+<li>Debug and optimize basic Noir circuits</li>
+<li>Test circuits with different input values</li>
+</ul>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#simple-arithmetic-circuit">Simple Arithmetic Circuit</a></li>
+<li><a href="#range-check-circuit">Range Check Circuit</a></li>
+<li><a href="#simple-cryptographic-hash-circuit">Simple Cryptographic Hash Circuit</a></li>
+<li><a href="#quadratic-residue-example">Quadratic Residue Example</a></li>
+<li><a href="#array-processing-circuit">Array Processing Circuit</a></li>
+<li><a href="#conditional-logic-in-circuits">Conditional Logic in Circuits</a></li>
+<li><a href="#practical-example-private-voting-circuit">Practical Example: Private Voting Circuit</a></li>
+<li><a href="#circuit-optimization-tips">Circuit Optimization Tips</a></li>
+<li><a href="#testing-your-circuits">Testing Your Circuits</a></li>
+<li><a href="#common-errors-and-debugging">Common Errors and Debugging</a></li>
+<li><a href="#knowledge-check">Knowledge Check</a></li>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#exercises">Exercises</a></li>
+</ol>
+<h2 id="introduction">Introduction</h2>
+<p>Welcome to the hands-on module where you&apos;ll write your first zero-knowledge proof circuits using Noir! This is where theory meets practice, and you&apos;ll see how to implement the mathematical concepts we&apos;ve discussed. We&apos;ll start with simple circuits and gradually build more complex ones, giving you a solid foundation in ZKP development.</p>
+<p>Now that you understand Noir&apos;s syntax and concepts, it&apos;s time to create actual proof circuits. Each circuit you write will express a computational statement that can be proven without revealing the underlying data. This is where the magic of zero-knowledge really begins!</p>
+<h2 id="simple-arithmetic-circuit">Simple Arithmetic Circuit</h2>
+<p>Let&apos;s start with a basic circuit that proves knowledge of two numbers whose product equals a public value.</p>
+<h3 id="circuit-proving-knowledge-of-factors">Circuit: Proving Knowledge of Factors</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// src/main.nr</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(private_a: Field, private_b: Field, public_product: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Constraint: private_a * private_b = public_product</span>
+    assert(private_a * private_b == public_product);
+}
+</code></pre>
+<h3 id="how-it-works">How It Works:</h3>
+<ol>
+<li>The prover knows two secret values (private_a and private_b)</li>
+<li>The verifier knows their product (public_product)</li>
+<li>The circuit proves that the prover knows factors of public_product</li>
+<li>The verifier learns that the prover knows the factors, but not what the factors are</li>
+</ol>
+<h3 id="test-with-provertoml">Test with Prover.toml:</h3>
+<pre><code class="lang-toml"><span class="hljs-attr">private_a</span> = <span class="hljs-string">&quot;17&quot;</span>
+<span class="hljs-attr">private_b</span> = <span class="hljs-string">&quot;19&quot;</span> 
+<span class="hljs-attr">public_product</span> = <span class="hljs-string">&quot;323&quot;</span>  # <span class="hljs-number">17</span> * <span class="hljs-number">19</span> = <span class="hljs-number">323</span>
+</code></pre>
+<h2 id="range-check-circuit">Range Check Circuit</h2>
+<p>Range checks are fundamental in ZKP systems - they prove that a value lies within specific bounds without revealing the exact value.</p>
+<h3 id="circuit-proving-a-value-is-between-0-and-255">Circuit: Proving a Value is Between 0 and 255</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// src/main.nr</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(secret_value: Field, dummy: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// We use dummy here because every circuit needs at least one public output</span>
+
+    <span class="hljs-comment">// Prove secret_value is between 0 and 255 (8-bit range check)</span>
+    <span class="hljs-comment">// Method: decompose into 8 bits and reassemble</span>
+
+    <span class="hljs-comment">// Get the bit decomposition</span>
+    <span class="hljs-keyword">let</span> bits = std::array::u8_to_bits(secret_value);
+
+    <span class="hljs-comment">// Verify that the bits reconstruct the original value</span>
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> reconstructed: Field = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">let</span> <span class="hljs-keyword">mut</span> multiplier: Field = <span class="hljs-number">1</span>;
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-number">0</span>..<span class="hljs-number">8</span> {
+        <span class="hljs-comment">// Each bit must be 0 or 1</span>
+        <span class="hljs-keyword">let</span> bit = bits[i];
+        assert(bit * (bit - <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>);  <span class="hljs-comment">// Only satisfied when bit is 0 or 1</span>
+
+        reconstructed = reconstructed + bit * multiplier;
+        multiplier = multiplier * <span class="hljs-number">2</span>;
+    }
+
+    <span class="hljs-comment">// The reconstructed value must equal the original</span>
+    assert(reconstructed == secret_value);
+
+    <span class="hljs-comment">// Set dummy to something to have a public output</span>
+    assert(dummy == <span class="hljs-number">0</span>);
+}
+</code></pre>
+<h3 id="more-efficient-range-check-with-built-in-function">More Efficient Range Check with Built-in Function</h3>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(secret_value: Field, dummy: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// This asserts that secret_value fits in 8 bits (0 to 255)</span>
+    secret_value.assert_mineq(<span class="hljs-number">255</span>);
+
+    assert(dummy == <span class="hljs-number">0</span>);
+}
+</code></pre>
+<h2 id="simple-cryptographic-hash-circuit">Simple Cryptographic Hash Circuit</h2>
+<p>Let&apos;s create a circuit that proves knowledge of a preimage to a hash without revealing the preimage.</p>
+<h3 id="circuit-proving-knowledge-of-sha-256-preimage">Circuit: Proving Knowledge of SHA-256 Preimage</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// Note: Implementation may vary based on backend support</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(preimage: Field, expected_hash: <span class="hljs-keyword">pub</span> [Field; <span class="hljs-number">4</span>]) {
+    <span class="hljs-comment">// This is a simplified example - real hash circuits are more complex</span>
+    <span class="hljs-comment">// In practice, you&apos;d use Noir&apos;s standard library functions when available</span>
+
+    <span class="hljs-comment">// For demonstration, let&apos;s use a simple arithmetic hash</span>
+    <span class="hljs-keyword">let</span> computed_hash_0 = preimage * <span class="hljs-number">3</span> + <span class="hljs-number">42</span>;
+    <span class="hljs-keyword">let</span> computed_hash_1 = preimage * <span class="hljs-number">5</span> + <span class="hljs-number">73</span>;
+    <span class="hljs-keyword">let</span> computed_hash_2 = preimage * <span class="hljs-number">7</span> + <span class="hljs-number">11</span>;
+    <span class="hljs-keyword">let</span> computed_hash_3 = preimage * <span class="hljs-number">11</span> + <span class="hljs-number">13</span>;
+
+    <span class="hljs-comment">// Verify each component of the hash matches</span>
+    assert(computed_hash_0 == expected_hash[<span class="hljs-number">0</span>]);
+    assert(computed_hash_1 == expected_hash[<span class="hljs-number">1</span>]);
+    assert(computed_hash_2 == expected_hash[<span class="hljs-number">2</span>]);
+    assert(computed_hash_3 == expected_hash[<span class="hljs-number">3</span>]);
+}
+</code></pre>
+<h2 id="quadratic-residue-example">Quadratic Residue Example</h2>
+<p>A more complex example showing a mathematical property proof.</p>
+<h3 id="circuit-proving-a-number-is-a-quadratic-residue">Circuit: Proving a Number is a Quadratic Residue</h3>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(secret_square_root: Field, public_square: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// Prove that public_square is a quadratic residue</span>
+    <span class="hljs-comment">// by showing knowledge of its square root</span>
+
+    <span class="hljs-comment">// Constraint: secret_square_root * secret_square_root = public_square</span>
+    assert(secret_square_root * secret_square_root == public_square);
+}
+</code></pre>
+<h2 id="array-processing-circuit">Array Processing Circuit</h2>
+<p>Let&apos;s build a circuit that processes multiple values.</p>
+<h3 id="circuit-proving-knowledge-of-a-secret-array-with-public-sum">Circuit: Proving Knowledge of a Secret Array with Public Sum</h3>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(
+    secret_array: [Field; <span class="hljs-number">5</span>], 
+    public_sum: <span class="hljs-keyword">pub</span> Field,
+    public_product: <span class="hljs-keyword">pub</span> Field
+) {
+    <span class="hljs-comment">// Calculate sum of array elements</span>
+    <span class="hljs-keyword">let</span> calculated_sum = secret_array[<span class="hljs-number">0</span>] + secret_array[<span class="hljs-number">1</span>] + 
+                         secret_array[<span class="hljs-number">2</span>] + secret_array[<span class="hljs-number">3</span>] + secret_array[<span class="hljs-number">4</span>];
+
+    <span class="hljs-comment">// Calculate product of array elements  </span>
+    <span class="hljs-keyword">let</span> calculated_product = secret_array[<span class="hljs-number">0</span>] * secret_array[<span class="hljs-number">1</span>] * 
+                            secret_array[<span class="hljs-number">2</span>] * secret_array[<span class="hljs-number">3</span>] * secret_array[<span class="hljs-number">4</span>];
+
+    <span class="hljs-comment">// Verify the public values match calculations</span>
+    assert(calculated_sum == public_sum);
+    assert(calculated_product == public_product);
+}
+</code></pre>
+<h3 id="test-with-provertoml">Test with Prover.toml:</h3>
+<pre><code class="lang-toml"><span class="hljs-attr">secret_array</span> = [<span class="hljs-string">&quot;2&quot;</span>, <span class="hljs-string">&quot;3&quot;</span>, <span class="hljs-string">&quot;4&quot;</span>, <span class="hljs-string">&quot;5&quot;</span>, <span class="hljs-string">&quot;6&quot;</span>]
+<span class="hljs-attr">public_sum</span> = <span class="hljs-string">&quot;20&quot;</span>      # <span class="hljs-number">2</span>+<span class="hljs-number">3</span>+<span class="hljs-number">4</span>+<span class="hljs-number">5</span>+<span class="hljs-number">6</span> = <span class="hljs-number">20</span>
+<span class="hljs-attr">public_product</span> = <span class="hljs-string">&quot;720&quot;</span> # <span class="hljs-number">2</span>*<span class="hljs-number">3</span>*<span class="hljs-number">4</span>*<span class="hljs-number">5</span>*<span class="hljs-number">6</span> = <span class="hljs-number">720</span>
+</code></pre>
+<h2 id="conditional-logic-in-circuits">Conditional Logic in Circuits</h2>
+<p>Noir supports conditional logic, which is crucial for more complex proofs.</p>
+<h3 id="circuit-conditional-payment-proof">Circuit: Conditional Payment Proof</h3>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(
+    account_balance: Field, 
+    payment_amount: Field,
+    sufficient_balance: <span class="hljs-keyword">bool</span>,
+    new_balance: <span class="hljs-keyword">pub</span> Field
+) {
+    <span class="hljs-keyword">if</span> sufficient_balance {
+        <span class="hljs-comment">// If sufficient balance, new balance is original - payment</span>
+        assert(new_balance == account_balance - payment_amount);
+        <span class="hljs-comment">// Verify the payment is possible</span>
+        assert(account_balance &gt;= payment_amount);
+    } <span class="hljs-keyword">else</span> {
+        <span class="hljs-comment">// If insufficient balance, new balance stays the same</span>
+        assert(new_balance == account_balance);
+        <span class="hljs-comment">// Verify the payment is not possible</span>
+        assert(account_balance &lt; payment_amount);
+    }
+
+    <span class="hljs-comment">// Prove knowledge of account balance and payment amount</span>
+    assert(account_balance &gt; <span class="hljs-number">0</span>);
+    assert(payment_amount &gt; <span class="hljs-number">0</span>);
+}
+</code></pre>
+<h2 id="practical-example-private-voting-circuit">Practical Example: Private Voting Circuit</h2>
+<p>Let&apos;s combine several concepts into a practical example: proving a valid vote was cast without revealing the vote.</p>
+<h3 id="circuit-private-vote-proof">Circuit: Private Vote Proof</h3>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(
+    vote_id: Field,           <span class="hljs-comment">// Secret identifier for the vote</span>
+    choice: Field,            <span class="hljs-comment">// Vote choice: 0 or 1 (yes/no)</span>
+    voter_secret: Field,      <span class="hljs-comment">// Secret key of voter</span>
+    vote_commitment: <span class="hljs-keyword">pub</span> Field,
+    election_id: <span class="hljs-keyword">pub</span> Field
+) {
+    <span class="hljs-comment">// Verify vote choice is 0 or 1</span>
+    assert(choice * (choice - <span class="hljs-number">1</span>) == <span class="hljs-number">0</span>);
+
+    <span class="hljs-comment">// Verify election ID constraint (arbitrary example)</span>
+    assert(election_id &gt; <span class="hljs-number">1000</span>);  <span class="hljs-comment">// Example constraint</span>
+
+    <span class="hljs-comment">// A simple commitment scheme</span>
+    <span class="hljs-comment">// In practice, you&apos;d use proper cryptographic commitments</span>
+    <span class="hljs-keyword">let</span> calculated_commitment = vote_id * <span class="hljs-number">31</span> + choice * <span class="hljs-number">17</span> + voter_secret * <span class="hljs-number">13</span>;
+
+    <span class="hljs-comment">// Prove the commitment is valid</span>
+    assert(vote_commitment == calculated_commitment);
+
+    <span class="hljs-comment">// Prove voter knows the secret</span>
+    assert(voter_secret &gt; <span class="hljs-number">0</span>);
+}
+</code></pre>
+<h2 id="circuit-optimization-tips">Circuit Optimization Tips</h2>
+<h3 id="1-minimize-constraints">1. Minimize Constraints</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// Less efficient</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">inefficient_example</span></span>(a: Field, b: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-keyword">let</span> temp1 = a * <span class="hljs-number">2</span>;
+    <span class="hljs-keyword">let</span> temp2 = b * <span class="hljs-number">3</span>;
+    <span class="hljs-keyword">let</span> temp3 = temp1 + temp2;
+    assert(result == temp3);
+}
+
+<span class="hljs-comment">// More efficient  </span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">efficient_example</span></span>(a: Field, b: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    assert(result == a * <span class="hljs-number">2</span> + b * <span class="hljs-number">3</span>);
+}
+</code></pre>
+<h3 id="2-use-early-returns-for-complex-logic">2. Use Early Returns for Complex Logic</h3>
+<pre><code class="lang-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">process_data</span></span>(input: Field, result: <span class="hljs-keyword">pub</span> Field) -&gt; <span class="hljs-keyword">pub</span> Field {
+    <span class="hljs-comment">// Early validation</span>
+    <span class="hljs-keyword">if</span> input &gt; <span class="hljs-number">1000000</span> {
+        assert(<span class="hljs-literal">false</span>); <span class="hljs-comment">// Invalid input</span>
+    }
+
+    <span class="hljs-comment">// Process the data</span>
+    <span class="hljs-keyword">let</span> processed = input * input + <span class="hljs-number">42</span>;
+    assert(result == processed);
+
+    processed
+}
+</code></pre>
+<h2 id="testing-your-circuits">Testing Your Circuits</h2>
+<h3 id="setting-up-tests">Setting Up Tests</h3>
+<p>Create a <code>Prover.toml</code> file to specify inputs:</p>
+<pre><code class="lang-toml"><span class="hljs-comment"># Example for the factors circuit</span>
+<span class="hljs-attr">private_a</span> = <span class="hljs-string">&quot;17&quot;</span>
+<span class="hljs-attr">private_b</span> = <span class="hljs-string">&quot;19&quot;</span>
+<span class="hljs-attr">public_product</span> = <span class="hljs-string">&quot;323&quot;</span>
+</code></pre>
+<h3 id="running-tests">Running Tests</h3>
+<pre><code class="lang-bash"><span class="hljs-comment"># Compile the circuit</span>
+nargo check
+
+<span class="hljs-comment"># Generate a proof with specified inputs</span>
+nargo prove myproof
+
+<span class="hljs-comment"># Verify the proof</span>
+nargo verify myproof
+</code></pre>
+<h3 id="testing-multiple-scenarios">Testing Multiple Scenarios</h3>
+<p>Create different TOML files for different test cases:</p>
+<ul>
+<li><code>Prover_valid.toml</code> - Valid inputs that should pass</li>
+<li><code>Prover_invalid.toml</code> - Invalid inputs that should fail</li>
+<li><code>Prover_edge_cases.toml</code> - Boundary cases</li>
+</ul>
+<h2 id="common-errors-and-debugging">Common Errors and Debugging</h2>
+<h3 id="error-unsatisfied-constraints">Error: Unsatisfied Constraints</h3>
+<p>This happens when the inputs don&apos;t satisfy the circuit constraints:</p>
+<pre><code class="lang-rust"><span class="hljs-comment">// Problem:</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(x: Field, y: <span class="hljs-keyword">pub</span> Field) {
+    assert(x * x == y);  <span class="hljs-comment">// If x=2 but y=5, this fails</span>
+}
+
+<span class="hljs-comment">// Solution: Ensure inputs satisfy all constraints</span>
+<span class="hljs-comment">// In Prover.toml: x = &quot;2&quot;, y = &quot;4&quot; (since 2*2=4)</span>
+</code></pre>
+<h3 id="error-out-of-range-values">Error: Out of Range Values</h3>
+<pre><code class="lang-rust"><span class="hljs-comment">// Problem: Field overflow</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">main</span></span>(large_a: Field, large_b: Field, result: <span class="hljs-keyword">pub</span> Field) {
+    <span class="hljs-comment">// This might overflow the field size</span>
+    assert(large_a + large_b == result);
+}
+</code></pre>
+<h2 id="knowledge-check">Knowledge Check</h2>
+<p>Think about these questions before continuing:</p>
+<ol>
+<li>How does a range check circuit prove that a value is within specific bounds?</li>
+<li>What&apos;s the difference between public and private inputs in terms of privacy?</li>
+<li>How would you modify the private voting circuit to support more than 2 choices?</li>
+</ol>
+<h2 id="summary">Summary</h2>
+<p>In this module, you&apos;ve implemented several types of basic proof circuits in Noir:</p>
+<ul>
+<li>Simple arithmetic constraint circuits</li>
+<li>Range check circuits for bounded values</li>
+<li>Circuits with conditional logic</li>
+<li>Multi-value processing circuits</li>
+<li>A practical example with the voting circuit</li>
+</ul>
+<p>You also learned about testing, optimization, and debugging techniques. These basic circuits form the building blocks for more complex ZKP applications. In the next module, we&apos;ll explore advanced techniques for building more sophisticated proof systems.</p>
+<h2 id="exercises">Exercises</h2>
+<h3 id="exercise-51-basic-arithmetic-practice">Exercise 5.1: Basic Arithmetic Practice</h3>
+<ol>
+<li>Write a Noir circuit that proves knowledge of the cube root of a number</li>
+<li>Create a circuit that proves two numbers are coprime (their GCD is 1)</li>
+<li>Implement a circuit that proves a number is prime (for small primes)</li>
+</ol>
+<h3 id="exercise-52-range-and-bounds">Exercise 5.2: Range and Bounds</h3>
+<ol>
+<li>Write a circuit that proves a value is within a specific range using bit decomposition</li>
+<li>Create a circuit that proves a value is a power of 2</li>
+<li>Implement a circuit that proves a value is a Fibonacci number</li>
+</ol>
+<h3 id="exercise-53-privacy-applications">Exercise 5.3: Privacy Applications</h3>
+<ol>
+<li>Design a circuit for private authentication (proving you know a password without revealing it)</li>
+<li>Create a circuit for private voting with multiple candidates (not just yes/no)</li>
+<li>Implement a circuit for private balance checking (proving you have more than X without revealing exact balance)</li>
+</ol>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="module-4-introduction-noir.html" class="navigation navigation-prev " aria-label="Previous page: Module 4: Introduction to Noir">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="module-6-advanced-techniques.html" class="navigation navigation-next " aria-label="Next page: Module 6: Advanced Techniques">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Module 5: Basic Proof Circuits","level":"1.6","depth":1,"next":{"title":"Module 6: Advanced Techniques","level":"1.7","depth":1,"path":"modules/module-6-advanced-techniques.md","ref":"modules/module-6-advanced-techniques.md","articles":[]},"previous":{"title":"Module 4: Introduction to Noir","level":"1.5","depth":1,"path":"modules/module-4-introduction-noir.md","ref":"modules/module-4-introduction-noir.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css","website":"styles/website.css"}},"file":{"path":"modules/module-5-basic-proof-circuits.md","mtime":"2025-11-25T14:18:36.638Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2025-11-25T14:58:03.317Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

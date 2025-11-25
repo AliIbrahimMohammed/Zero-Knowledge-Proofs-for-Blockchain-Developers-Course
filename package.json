@@ -1,0 +1,16 @@
+{
+  "name": "zkp-course",
+  "version": "1.0.0",
+  "description": "Zero-Knowledge Proofs for Blockchain Developers Course",
+  "main": "index.js",
+  "scripts": {
+    "build": "gitbook build",
+    "serve": "gitbook serve",
+    "deploy": "gh-pages -d _book"
+  },
+  "author": "Ali Ibrahim Mohammed",
+  "license": "MIT",
+  "devDependencies": {
+    "gh-pages": "^3.2.3"
+  }
+}
